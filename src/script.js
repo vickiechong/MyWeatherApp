@@ -56,7 +56,7 @@ function searchcountrybutton(event) {
 let searchcountryinput = document.querySelector("#searchcountrybar");
 searchcountryinput.addEventListener("submit", searchcountrybutton);
 
-searchcity("New York");
+searchcity("Seoul");
 
 // geolocation API weather
 
