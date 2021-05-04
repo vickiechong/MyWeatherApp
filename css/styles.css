@@ -1,0 +1,76 @@
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Lato", sans-serif;
+}
+.weatherapp {
+  max-width: 600px;
+  background: linear-gradient(rgb(189 209 245 / 23%), #fddadd38);
+  position: relative;
+  top: 50px;
+  border: solid 2px lightgrey;
+  border-radius: 25px;
+  padding: 25px;
+}
+.todaycountryandtemp {
+  text-align: center;
+}
+.countrydisplay {
+  font-size: 68px;
+  font-weight: 600;
+}
+
+.todaydatemain {
+  font-size: 28px;
+  font-weight: 600;
+}
+.todaywidget {
+  font-size: 80px;
+}
+.todaytemp {
+  font-size: 150px;
+}
+.todaywidgettemp {
+  vertical-align: middle;
+}
+.tempformat {
+  color: black;
+}
+.tempformat:hover {
+  text-decoration: none;
+  color: blue;
+  font-weight: 600;
+}
+.todaystats {
+  font-style: italic;
+  font-size: 14px;
+}
+.weather-info {
+  list-style: none;
+  width: fit-content;
+  margin-right: 0;
+  margin-left: auto;
+}
+.favesection {
+  font-size: 20px;
+}
+.futuredays {
+  font-size: 18px;
+}
+.futurestats {
+  font-size: 10px;
+}
+.futuredaysblock {
+  max-width: 600px;
+}
+.tempmin {
+  margin-right: 50px;
+}
+.humidityvalue {
+  margin-left: 3px;
+}
+
+.rainfallvalue {
+  margin-left: 6px;
+}
