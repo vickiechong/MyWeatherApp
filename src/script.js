@@ -31,12 +31,18 @@ function showtemp(response) {
   );
   let currenthumidity = document.querySelector("#currenthumidity");
   let humidityvalue = response.data.main.humidity;
+  let iconElement = document.querySelector("#todayicon");
 
   celsiustempdata = response.data.main.temp;
 
   currenttemp.innerHTML = Math.round(celsiustempdata);
   formatdisplaysearchcountry.innerHTML = response.data.name;
   currenthumidity.innerHTML = `${humidityvalue}%`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   console.log(response.data);
 }
