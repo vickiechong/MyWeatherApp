@@ -24,217 +24,222 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div class="container weatherapp">
-      <div class="row justify-content-center searchrow">
-        <div class="col-2 text-right">
-          <button type="button" class="btn btn-secondary favebutton">
-            <i class="fas fa-heart"></i>
-          </button>
-        </div>
-        <div class="col-6">
-          <form class="d-flex" id="searchcountrybar">
-            <input
-              type="text"
-              class="form-control"
-              id="searchcountryinput"
-              placeholder="Country or City"
-              required
-              autofocus
-              autocomplete="off"
-            />
-            <button class="btn btn-primary ml-3" id="searchcountrybutton">
-              <i class="fas fa-search"></i>
+    <div class="weatherapp-wrapper">
+      <div class="container weatherapp">
+        <div class="row justify-content-center searchrow">
+          <div class="col-2 text-right">
+            <button type="button" class="btn btn-secondary favebutton">
+              <i class="fas fa-heart"></i>
             </button>
-          </form>
-        </div>
-        <div class="col-2 text-left">
-          <span>
-            <button class="btn btn-primary" id="locationbutton" type="submit">
-              <i class="fas fa-map-marked-alt"></i>
-            </button>
-          </span>
-        </div>
-      </div>
-      <br />
-      <br />
-      <div class="todaycountryandtemp">
-        <h1 class="countrydisplay" id="displaysearchcountry">Seoul</h1>
-        <h2 class="todaydatemain">
-          <div class="row justify-content-center">
-            <div class="todaymain">
-              Today
-              <span class="datemain" id="currentdate"> 5 </span>
-              /
-              <span class="monthmain" id="currentmonth"> 4 </span>
-            </div>
           </div>
-          <div class="timemain" id="currenttime">12:00</div>
-          <br />
-        </h2>
-        <h3 class="todaytempmain">
-          <div class="row todaytempall">
-            <div class="col-1 space"></div>
-            <div class="col">
-              <div class="row todaywidgettemp">
-                <span
-                  class="col-4 todaywidget d-flex align-items-center justify-content-center"
-                  >⛅</span
-                >
-                <div class="col-4 d-flex justify-content-center">
-                  <span class="todaytemp" id="currenttemp">2</span>
-                </div>
-                <div class="col-4 d-flex">
-                  <span class="units">
-                    <a href="" class="tempformat celcius" id="linkCelcius"
-                      >°C
-                    </a>
-                    |
-                    <a href="" class="tempformat fahrenheit" id="linkFahrenheit"
-                      >°F
-                    </a>
-                  </span>
-                </div>
+          <div class="col-6">
+            <form class="d-flex" id="searchcountrybar">
+              <input
+                type="text"
+                class="form-control"
+                id="searchcountryinput"
+                placeholder="Country or City"
+                required
+                autofocus
+                autocomplete="off"
+              />
+              <button class="btn btn-primary ml-3" id="searchcountrybutton">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+          <div class="col-2 text-left">
+            <span>
+              <button class="btn btn-primary" id="locationbutton" type="submit">
+                <i class="fas fa-map-marked-alt"></i>
+              </button>
+            </span>
+          </div>
+        </div>
+        <br />
+        <br />
+        <div class="todaycountryandtemp">
+          <h1 class="countrydisplay" id="displaysearchcountry">Seoul</h1>
+          <h2 class="todaydatemain">
+            <div class="row justify-content-center">
+              <div class="todaymain">
+                Today
+                <span class="datemain" id="currentdate"> 5 </span>
+                /
+                <span class="monthmain" id="currentmonth"> 4 </span>
               </div>
             </div>
-            <span class="col-1 space"></span>
-          </div>
-        </h3>
-      </div>
-      <ul class="weather-info">
-        <li class="todaystats humidity">
-          <i class="fas fa-temperature-high"></i> Humidity :
-          <span class="humidityvalue" id="currenthumidity"> 20% </span>
-        </li>
-        <li class="todaystats rainfall">
-          <i class="fas fa-tint"></i> Rainfall :
-          <span class="rainfallvalue" id="currentrainfall">80%</span>
-        </li>
-      </ul>
-      <br />
-      <hr />
-      <div class="container futuredaysblock">
-        <div class="row align-items-center text-center mt-3 futuredays T+1">
-          <div class="col widget">🌤</div>
-          <div class="col day">MON</div>
-          <div class="col tempmax">6°</div>
-          <div class="col tempmin">2°</div>
-          <div class="col futurestats">
-            <div class="row T+1 humidity">
-              <i class="fas fa-temperature-high humiditywidget"></i>
-              <span class="humidityvalue"> 10% </span>
+            <div class="timemain" id="currenttime">12:00</div>
+            <br />
+          </h2>
+          <h3 class="todaytempmain">
+            <div class="row todaytempall">
+              <div class="col-1 space"></div>
+              <div class="col">
+                <div class="row todaywidgettemp">
+                  <span
+                    class="col-4 todaywidget d-flex align-items-center justify-content-center"
+                    >⛅</span
+                  >
+                  <div class="col-4 d-flex justify-content-center">
+                    <span class="todaytemp" id="currenttemp">2</span>
+                  </div>
+                  <div class="col-4 d-flex">
+                    <span class="units">
+                      <a href="" class="tempformat celcius" id="linkCelcius"
+                        >°C
+                      </a>
+                      |
+                      <a
+                        href=""
+                        class="tempformat fahrenheit"
+                        id="linkFahrenheit"
+                        >°F
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <span class="col-1 space"></span>
             </div>
-            <div class="row T+1 rainfall">
-              <i class="fas fa-tint"></i>
-              <span class="rainfallvalue"> 20% </span>
+          </h3>
+        </div>
+        <ul class="weather-info">
+          <li class="todaystats humidity">
+            <i class="fas fa-temperature-high"></i> Humidity :
+            <span class="humidityvalue" id="currenthumidity"> 20% </span>
+          </li>
+          <li class="todaystats rainfall">
+            <i class="fas fa-tint"></i> Rainfall :
+            <span class="rainfallvalue" id="currentrainfall">80%</span>
+          </li>
+        </ul>
+        <br />
+        <hr />
+        <div class="container futuredaysblock">
+          <div class="row align-items-center text-center mt-3 futuredays T+1">
+            <div class="col widget">🌤</div>
+            <div class="col day">MON</div>
+            <div class="col tempmax">6°</div>
+            <div class="col tempmin">2°</div>
+            <div class="col futurestats">
+              <div class="row T+1 humidity">
+                <i class="fas fa-temperature-high humiditywidget"></i>
+                <span class="humidityvalue"> 10% </span>
+              </div>
+              <div class="row T+1 rainfall">
+                <i class="fas fa-tint"></i>
+                <span class="rainfallvalue"> 20% </span>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center text-center mt-3 futuredays T+2">
+            <div class="col widget">☁</div>
+            <div class="col day">TUE</div>
+            <div class="col tempmax">3°</div>
+            <div class="col tempmin">0°</div>
+            <div class="col futurestats">
+              <div class="row T+2 humidity">
+                <i class="fas fa-temperature-high"></i>
+                <span class="humidityvalue"> 10% </span>
+              </div>
+              <div class="row T+2 rainfall">
+                <i class="fas fa-tint"></i>
+                <span class="rainfallvalue"> 20% </span>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center text-center mt-3 futuredays T+3">
+            <div class="col widget">❄</div>
+            <div class="col day">WED</div>
+            <div class="col tempmax">0°</div>
+            <div class="col tempmin">-4°</div>
+            <div class="col futurestats">
+              <div class="row T+3 humidity">
+                <i class="fas fa-temperature-high"></i>
+                <span class="humidityvalue"> 10% </span>
+              </div>
+              <div class="row T+3 rainfall">
+                <i class="fas fa-tint"></i>
+                <span class="rainfallvalue"> 20% </span>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center text-center mt-3 futuredays T+4">
+            <div class="col widget">🌧</div>
+            <div class="col day">THU</div>
+            <div class="col tempmax">3°</div>
+            <div class="col tempmin">1°</div>
+            <div class="col futurestats">
+              <div class="row T+3 humidity">
+                <i class="fas fa-temperature-high"></i>
+                <span class="humidityvalue"> 10% </span>
+              </div>
+              <div class="row T+3 rainfall">
+                <i class="fas fa-tint"></i>
+                <span class="rainfallvalue"> 20% </span>
+              </div>
+            </div>
+          </div>
+          <div class="row align-items-center text-center mt-3 futuredays T+5">
+            <div class="col widget">🌥</div>
+            <div class="col day">FRI</div>
+            <div class="col tempmax">2°</div>
+            <div class="col tempmin">-1°</div>
+            <div class="col futurestats">
+              <div class="row T+5 humidity">
+                <i class="fas fa-temperature-high"></i>
+                <span class="humidityvalue"> 10% </span>
+              </div>
+              <div class="row T+5 rainfall">
+                <i class="fas fa-tint"></i>
+                <span class="rainfallvalue"> 20% </span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="row align-items-center text-center mt-3 futuredays T+2">
-          <div class="col widget">☁</div>
-          <div class="col day">TUE</div>
-          <div class="col tempmax">3°</div>
-          <div class="col tempmin">0°</div>
-          <div class="col futurestats">
-            <div class="row T+2 humidity">
-              <i class="fas fa-temperature-high"></i>
-              <span class="humidityvalue"> 10% </span>
-            </div>
-            <div class="row T+2 rainfall">
-              <i class="fas fa-tint"></i>
-              <span class="rainfallvalue"> 20% </span>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center text-center mt-3 futuredays T+3">
-          <div class="col widget">❄</div>
-          <div class="col day">WED</div>
-          <div class="col tempmax">0°</div>
-          <div class="col tempmin">-4°</div>
-          <div class="col futurestats">
-            <div class="row T+3 humidity">
-              <i class="fas fa-temperature-high"></i>
-              <span class="humidityvalue"> 10% </span>
-            </div>
-            <div class="row T+3 rainfall">
-              <i class="fas fa-tint"></i>
-              <span class="rainfallvalue"> 20% </span>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center text-center mt-3 futuredays T+4">
-          <div class="col widget">🌧</div>
-          <div class="col day">THU</div>
-          <div class="col tempmax">3°</div>
-          <div class="col tempmin">1°</div>
-          <div class="col futurestats">
-            <div class="row T+3 humidity">
-              <i class="fas fa-temperature-high"></i>
-              <span class="humidityvalue"> 10% </span>
-            </div>
-            <div class="row T+3 rainfall">
-              <i class="fas fa-tint"></i>
-              <span class="rainfallvalue"> 20% </span>
-            </div>
-          </div>
-        </div>
-        <div class="row align-items-center text-center mt-3 futuredays T+5">
-          <div class="col widget">🌥</div>
-          <div class="col day">FRI</div>
-          <div class="col tempmax">2°</div>
-          <div class="col tempmin">-1°</div>
-          <div class="col futurestats">
-            <div class="row T+5 humidity">
-              <i class="fas fa-temperature-high"></i>
-              <span class="humidityvalue"> 10% </span>
-            </div>
-            <div class="row T+5 rainfall">
-              <i class="fas fa-tint"></i>
-              <span class="rainfallvalue"> 20% </span>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <hr />
-      <h4>
-        <i class="fas fa-heart"></i> <span><strong>PLACES</strong></span>
-      </h4>
-      <div class="container favesection">
-        <div class="row pt-3 justify-content-center favecity">
-          <div class="col-3 text-center">
-            <p>LONDON</p>
-            <div class="fave1">
-              <span class="favewidget">🌧</span>
-              <span class="favetemp">6°</span>
+        <hr />
+        <h4>
+          <i class="fas fa-heart"></i> <span><strong>PLACES</strong></span>
+        </h4>
+        <div class="container favesection">
+          <div class="row pt-3 justify-content-center favecity">
+            <div class="col-3 text-center">
+              <p>LONDON</p>
+              <div class="fave1">
+                <span class="favewidget">🌧</span>
+                <span class="favetemp">6°</span>
+              </div>
             </div>
-          </div>
-          <div class="col-3 text-center">
-            <p>ICELAND</p>
-            <div class="fave2">
-              <span class="favewidget">❄</span>
-              <span class="favetemp">-20°</span>
+            <div class="col-3 text-center">
+              <p>ICELAND</p>
+              <div class="fave2">
+                <span class="favewidget">❄</span>
+                <span class="favetemp">-20°</span>
+              </div>
             </div>
-          </div>
-          <div class="col-3 text-center">
-            <p>NEW YORK</p>
-            <div class="fave3">
-              <span class="favewidget">⛅</span>
-              <span class="favetemp">-1°</span>
+            <div class="col-3 text-center">
+              <p>NEW YORK</p>
+              <div class="fave3">
+                <span class="favewidget">⛅</span>
+                <span class="favetemp">-1°</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <p class="opensourcestatement">
+        <a
+          href="https://github.com/vickiechong/MyWeatherApp"
+          target="_blank"
+          id="webpageaddress"
+        >
+          Open-source
+        </a>
+        coded by Vickie Chong
+      </p>
     </div>
-    <p class="opensourcestatement">
-      <a
-        href="https://github.com/vickiechong/MyWeatherApp"
-        target="_blank"
-        id="webpageaddress"
-      >
-        Open-source
-      </a>
-      coded by Vickie Chong
-    </p>
     <script src="src/script.js"></script>
   </body>
 </html>
