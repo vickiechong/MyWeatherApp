@@ -31,13 +31,13 @@ h4 {
   font-size: 28px;
   font-weight: 600;
 }
-.todaywidget {
+.todayicon {
   font-size: 80px;
 }
 .todaytemp {
   font-size: 150px;
 }
-.todaywidgettemp {
+.todayicontemp {
   vertical-align: middle;
 }
 .tempformat {
