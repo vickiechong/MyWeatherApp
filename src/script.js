@@ -25,16 +25,19 @@ currenttime.innerHTML = `${hours}:${minutes}`;
 // searched country API weather
 
 function showtemp(response) {
-  let tempdata = Math.round(response.data.main.temp);
-  let humidity = response.data.main.humidity;
-  let searchedcurrenttemp = document.querySelector("#currenttemp");
-  searchedcurrenttemp.innerHTML = tempdata;
+  let currenttemp = document.querySelector("#currenttemp");
   let formatdisplaysearchcountry = document.querySelector(
     "#displaysearchcountry"
   );
-  formatdisplaysearchcountry.innerHTML = response.data.name;
   let currenthumidity = document.querySelector("#currenthumidity");
-  currenthumidity.innerHTML = `${humidity}%`;
+  let humidityvalue = response.data.main.humidity;
+
+  celsiustempdata = response.data.main.temp;
+
+  currenttemp.innerHTML = Math.round(celsiustempdata);
+  formatdisplaysearchcountry.innerHTML = response.data.name;
+  currenthumidity.innerHTML = `${humidityvalue}%`;
+
   console.log(response.data);
 }
 
@@ -55,8 +58,6 @@ function searchcountrybutton(event) {
 
 let searchcountryinput = document.querySelector("#searchcountrybar");
 searchcountryinput.addEventListener("submit", searchcountrybutton);
-
-searchcity("Seoul");
 
 // geolocation API weather
 
@@ -80,21 +81,30 @@ getlocation.addEventListener("click", getposition);
 
 // changing of weather metrics link
 
-function changeCelcius(event) {
-  event.preventDefault();
-  let currenttemp = document.querySelector("#currenttemp");
-  let linkCelcius = document.querySelector("#linkCelcius");
-  currenttemp.innerHTML = `1`;
-}
-
 function changeFahrenheit(event) {
   event.preventDefault();
   let currenttemp = document.querySelector("#currenttemp");
-  let linkFahrenheit = document.querySelector("#linkFahrenheit");
-  currenttemp.innerHTML = `32`;
+  linkCelsius.classList.remove("active");
+  linkFahrenheit.classList.add("active");
+  let fahrenheittempdata = (celsiustempdata * 9) / 5 + 32;
+  currenttemp.innerHTML = Math.round(fahrenheittempdata);
 }
 
-let linkCelcius = document.querySelector("#linkCelcius");
+function changeCelsius(event) {
+  event.preventDefault();
+  let currenttemp = document.querySelector("#currenttemp");
+  linkFahrenheit.classList.remove("active");
+  linkCelsius.classList.add("active");
+  currenttemp.innerHTML = Math.round(celsiustempdata);
+}
+
+let celsiustempdata = null;
+
 let linkFahrenheit = document.querySelector("#linkFahrenheit");
-linkCelcius.addEventListener("click", changeCelcius);
 linkFahrenheit.addEventListener("click", changeFahrenheit);
+let linkCelsius = document.querySelector("#linkCelsius");
+linkCelsius.addEventListener("click", changeCelsius);
+
+// City on load
+
+searchcity("Seoul");
