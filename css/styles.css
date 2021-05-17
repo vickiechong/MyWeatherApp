@@ -88,9 +88,13 @@ h4 {
 }
 
 .rainfallvalue {
-  margin-left: 6px;
+  margin-left: 3px;
 }
 
 .opensourcestatement {
   text-align: center;
+}
+
+.forecasticon {
+  width: 35px;
 }

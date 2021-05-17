@@ -22,6 +22,77 @@ currentdate.innerHTML = `${date}`;
 currentmonth.innerHTML = `${month}`;
 currenttime.innerHTML = `${hours}:${minutes}`;
 
+// format forecastdays to words
+
+function formatday(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+  let day = date.getDay();
+
+  return days[day];
+}
+
+// display forecast and replicate future days
+
+function displayforecast(response) {
+  let forecast = response.data.daily;
+  let forecastelement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="">`;
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index > 0 && index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="row align-items-center text-center mt-3 futuredays T+1">
+      <div class="col icon">
+      <img
+          src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png"
+          alt=""
+          class="forecasticon"
+          width=""
+      />
+      </div>
+      <div class="col futuredate">${formatday(forecastDay.dt)}</div>
+      <div class="col tempmax">${Math.round(forecastDay.temp.max)}°</div>
+      <div class="col tempmin">${Math.round(forecastDay.temp.min)}°</div>
+      <div class="col futurestats">
+        <div class="row T+1 humidity">
+          <i class="fas fa-temperature-high humidityicon"></i>
+          <span class="humidityvalue"> ${forecastDay.humidity}% </span>
+        </div>
+        <div class="row T+1 rainfall">
+          <i class="fas fa-tint"></i>
+          <span class="rainfallvalue"> ${forecastDay.pop * 100}% </span>
+        </div>
+      </div>
+    </div>
+    `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastelement.innerHTML = forecastHTML;
+
+  console.log(forecast);
+
+  let currentdayrainforecast = document.querySelector("#currentrainfall");
+  currentdayrainforecast.innerHTML = `${forecast[0].pop * 100}%`;
+}
+
+// API for forecast days from coords in currentdayAPI data
+
+function getforecast(coordinates) {
+  console.log(coordinates);
+
+  let apikey = `404ebbfe1292f8e13a6dd9e110c25a01`;
+  let units = `metric`;
+  let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apikey}&units=${units}`;
+
+  axios.get(apiurl).then(displayforecast);
+}
+
 // searched country API weather
 
 function showtemp(response) {
@@ -45,6 +116,8 @@ function showtemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   console.log(response.data);
+
+  getforecast(response.data.coord);
 }
 
 function searchcity(city) {

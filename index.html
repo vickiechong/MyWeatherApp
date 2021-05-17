@@ -78,7 +78,12 @@
               <div class="col">
                 <div class="row">
                   <div
-                    class="col-4 d-flex align-items-center justify-content-center"
+                    class="
+                      col-4
+                      d-flex
+                      align-items-center
+                      justify-content-center
+                    "
                   >
                     <img src="" alt="" id="todayicon" />
                   </div>
@@ -114,94 +119,13 @@
             <span class="humidityvalue" id="currenthumidity"> 20% </span>
           </li>
           <li class="todaystats rainfall">
-            <i class="fas fa-tint"></i> Rainfall :
+            <i class="fas fa-tint"></i> Rainfall % :
             <span class="rainfallvalue" id="currentrainfall">80%</span>
           </li>
         </ul>
         <br />
         <hr />
-        <div class="container futuredaysblock">
-          <div class="row align-items-center text-center mt-3 futuredays T+1">
-            <div class="col icon">🌤</div>
-            <div class="col day">MON</div>
-            <div class="col tempmax">6°</div>
-            <div class="col tempmin">2°</div>
-            <div class="col futurestats">
-              <div class="row T+1 humidity">
-                <i class="fas fa-temperature-high humidityicon"></i>
-                <span class="humidityvalue"> 10% </span>
-              </div>
-              <div class="row T+1 rainfall">
-                <i class="fas fa-tint"></i>
-                <span class="rainfallvalue"> 20% </span>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center text-center mt-3 futuredays T+2">
-            <div class="col icon">☁</div>
-            <div class="col day">TUE</div>
-            <div class="col tempmax">3°</div>
-            <div class="col tempmin">0°</div>
-            <div class="col futurestats">
-              <div class="row T+2 humidity">
-                <i class="fas fa-temperature-high"></i>
-                <span class="humidityvalue"> 10% </span>
-              </div>
-              <div class="row T+2 rainfall">
-                <i class="fas fa-tint"></i>
-                <span class="rainfallvalue"> 20% </span>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center text-center mt-3 futuredays T+3">
-            <div class="col icon">❄</div>
-            <div class="col day">WED</div>
-            <div class="col tempmax">0°</div>
-            <div class="col tempmin">-4°</div>
-            <div class="col futurestats">
-              <div class="row T+3 humidity">
-                <i class="fas fa-temperature-high"></i>
-                <span class="humidityvalue"> 10% </span>
-              </div>
-              <div class="row T+3 rainfall">
-                <i class="fas fa-tint"></i>
-                <span class="rainfallvalue"> 20% </span>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center text-center mt-3 futuredays T+4">
-            <div class="col icon">🌧</div>
-            <div class="col day">THU</div>
-            <div class="col tempmax">3°</div>
-            <div class="col tempmin">1°</div>
-            <div class="col futurestats">
-              <div class="row T+3 humidity">
-                <i class="fas fa-temperature-high"></i>
-                <span class="humidityvalue"> 10% </span>
-              </div>
-              <div class="row T+3 rainfall">
-                <i class="fas fa-tint"></i>
-                <span class="rainfallvalue"> 20% </span>
-              </div>
-            </div>
-          </div>
-          <div class="row align-items-center text-center mt-3 futuredays T+5">
-            <div class="col icon">🌥</div>
-            <div class="col day">FRI</div>
-            <div class="col tempmax">2°</div>
-            <div class="col tempmin">-1°</div>
-            <div class="col futurestats">
-              <div class="row T+5 humidity">
-                <i class="fas fa-temperature-high"></i>
-                <span class="humidityvalue"> 10% </span>
-              </div>
-              <div class="row T+5 rainfall">
-                <i class="fas fa-tint"></i>
-                <span class="rainfallvalue"> 20% </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="container futuredaysblock" id="forecast"></div>
 
         <hr />
         <h4>
