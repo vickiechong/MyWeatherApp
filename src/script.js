@@ -55,8 +55,12 @@ function displayforecast(response) {
       />
       </div>
       <div class="col futuredate">${formatday(forecastDay.dt)}</div>
-      <div class="col tempmax">${Math.round(forecastDay.temp.max)}°</div>
-      <div class="col tempmin">${Math.round(forecastDay.temp.min)}°</div>
+      <div class="col tempmax"><span id="forecasttempmax">${Math.round(
+        forecastDay.temp.max
+      )}</span>°</div>
+      <div class="col tempmin"><span id="forecasttempmin">${Math.round(
+        forecastDay.temp.min
+      )}</span>°</div>
       <div class="col futurestats">
         <div class="row T+1 humidity">
           <i class="fas fa-temperature-high humidityicon"></i>
@@ -76,6 +80,8 @@ function displayforecast(response) {
   forecastelement.innerHTML = forecastHTML;
 
   console.log(forecast);
+
+  // currentday forecast for rainfall
 
   let currentdayrainforecast = document.querySelector("#currentrainfall");
   currentdayrainforecast.innerHTML = `${forecast[0].pop * 100}%`;
@@ -167,6 +173,21 @@ function changeFahrenheit(event) {
   linkFahrenheit.classList.add("active");
   let fahrenheittempdata = (celsiustempdata * 9) / 5 + 32;
   currenttemp.innerHTML = Math.round(fahrenheittempdata);
+
+  let forecastmax = document.querySelectorAll("#forecasttempmax");
+  forecastmax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  let forecastmin = document.querySelectorAll("#forecasttempmin");
+  forecastmin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  linkCelsius.addEventListener("click", changeCelsius);
+  linkFahrenheit.removeEventListener("click", changeFahrenheit);
 }
 
 function changeCelsius(event) {
@@ -175,6 +196,21 @@ function changeCelsius(event) {
   linkFahrenheit.classList.remove("active");
   linkCelsius.classList.add("active");
   currenttemp.innerHTML = Math.round(celsiustempdata);
+
+  let forecastmax = document.querySelectorAll("#forecasttempmax");
+  forecastmax.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let forecastmin = document.querySelectorAll("#forecasttempmin");
+  forecastmin.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  linkFahrenheit.addEventListener("click", changeFahrenheit);
+  linkCelsius.removeEventListener("click", changeCelsius);
 }
 
 let celsiustempdata = null;
