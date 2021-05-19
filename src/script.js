@@ -68,7 +68,9 @@ function displayforecast(response) {
         </div>
         <div class="row T+1 rainfall">
           <i class="fas fa-tint"></i>
-          <span class="rainfallvalue"> ${forecastDay.pop * 100}% </span>
+          <span class="rainfallvalue"> ${Math.round(
+            forecastDay.pop * 100
+          )}% </span>
         </div>
       </div>
     </div>
@@ -176,14 +178,14 @@ function changeFahrenheit(event) {
 
   let forecastmax = document.querySelectorAll("#forecasttempmax");
   forecastmax.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+    let currentTempvalue = item.innerHTML;
+    item.innerHTML = Math.round((currentTempvalue * 9) / 5 + 32);
   });
 
   let forecastmin = document.querySelectorAll("#forecasttempmin");
   forecastmin.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+    let currentTempvalue = item.innerHTML;
+    item.innerHTML = Math.round((currentTempvalue * 9) / 5 + 32);
   });
 
   linkCelsius.addEventListener("click", changeCelsius);
@@ -199,14 +201,14 @@ function changeCelsius(event) {
 
   let forecastmax = document.querySelectorAll("#forecasttempmax");
   forecastmax.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    let currentTempvalue = item.innerHTML;
+    item.innerHTML = Math.round(((currentTempvalue - 32) * 5) / 9);
   });
 
   let forecastmin = document.querySelectorAll("#forecasttempmin");
   forecastmin.forEach(function (item) {
-    let currentTemp = item.innerHTML;
-    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+    let currentTempvalue = item.innerHTML;
+    item.innerHTML = Math.round(((currentTempvalue - 32) * 5) / 9);
   });
 
   linkFahrenheit.addEventListener("click", changeFahrenheit);
