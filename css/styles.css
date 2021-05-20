@@ -98,3 +98,8 @@ h4 {
 .forecasticon {
   width: 35px;
 }
+
+.fave1icon .fave2icon .fave3icon {
+  display: inline;
+  width: 35px;
+}

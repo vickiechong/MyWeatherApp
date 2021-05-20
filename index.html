@@ -28,7 +28,11 @@
       <div class="container weatherapp">
         <div class="row justify-content-center searchrow">
           <div class="col-2 text-right">
-            <button type="button" class="btn btn-secondary favebutton">
+            <button
+              type="button"
+              class="btn btn-secondary favebutton"
+              id="favebutton"
+            >
               <i class="fas fa-heart"></i>
             </button>
           </div>
@@ -123,7 +127,7 @@
             <span class="rainfallvalue" id="currentrainfall">80%</span>
           </li>
         </ul>
-        <br />
+
         <hr />
         <div class="container futuredaysblock" id="forecast"></div>
 
@@ -134,24 +138,30 @@
         <div class="container favesection">
           <div class="row pt-3 justify-content-center favecity">
             <div class="col-3 text-center">
-              <p>LONDON</p>
+              <p id="fave1city">LONDON</p>
               <div class="fave1">
-                <span class="faveicon">🌧</span>
-                <span class="favetemp">6°</span>
+                <img src="" alt="" class="fave1icon" id="fave1icon" width="" />🌧
+                <span class="fave1temp">6°</span>
               </div>
             </div>
             <div class="col-3 text-center">
-              <p>ICELAND</p>
+              <p id="fave2city">ICELAND</p>
               <div class="fave2">
-                <span class="faveicon">❄</span>
-                <span class="favetemp">-20°</span>
+                <img src="" alt="" class="fave2icon" id="fave2icon" width="" />❄
+                <span class="fave2temp">-20°</span>
               </div>
             </div>
             <div class="col-3 text-center">
-              <p>NEW YORK</p>
+              <p id="fave3city">NEW YORK</p>
               <div class="fave3">
-                <span class="faveicon">⛅</span>
-                <span class="favetemp">-1°</span>
+                <img
+                  src=""
+                  alt=""
+                  class="fave3icon"
+                  id="fave3icon"
+                  width=""
+                />⛅
+                <span class="fave3temp">-1°</span>
               </div>
             </div>
           </div>
