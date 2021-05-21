@@ -99,7 +99,11 @@ h4 {
   width: 35px;
 }
 
-.fave1icon .fave2icon .fave3icon {
+.fave1icon {
   display: inline;
   width: 35px;
+}
+
+.fave1cityname {
+  text-transform: uppercase;
 }

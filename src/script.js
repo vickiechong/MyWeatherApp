@@ -166,6 +166,55 @@ function getposition() {
 let getlocation = document.querySelector("#locationbutton");
 getlocation.addEventListener("click", getposition);
 
+// fave cities display
+
+function displayfavetemp(response) {
+  let favedata = response.data;
+  let faveElement = document.querySelector("#faveblock");
+  let faveHTMLwrap = `<div class="row pt-3 justify-content-center favecity">`;
+
+  faveHTML = `<div class="col-3 text-center">
+              <p class="fave1cityname" id="fave1city">${favedata.name}</p>
+              <div class="fave1">
+                <img 
+                src="http://openweathermap.org/img/wn/${
+                  favedata.weather[0].icon
+                }@2x.png" 
+                alt="" 
+                class="fave1icon" 
+                id="fave1icon" width="" />
+                <span class="fave1temp">${Math.round(
+                  favedata.main.temp
+                )}</span>°
+              </div>
+    </div>`;
+
+  faveHTML = faveHTMLwrap + faveHTML + faveHTML + faveHTML;
+  faveHTMLall = faveHTML + `</div>`;
+  faveElement.innerHTML = faveHTMLall;
+
+  console.log(favedata);
+}
+
+// search fave city API
+
+function favecity() {
+  let favecities = ["London", "Seoul", "New York"];
+
+  favecities.forEach(function (favecity) {
+    let apikey = `404ebbfe1292f8e13a6dd9e110c25a01`;
+    let apiendpoint = `https://api.openweathermap.org/data/2.5/weather?`;
+    let units = `metric`;
+    let apiurl = `${apiendpoint}q=${favecity}&appid=${apikey}&units=${units}`;
+
+    axios.get(apiurl).then(displayfavetemp);
+  });
+}
+
+// run fave city on load
+
+favecity();
+
 // changing of weather metrics link
 
 function changeFahrenheit(event) {
