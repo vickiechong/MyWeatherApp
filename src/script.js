@@ -172,6 +172,8 @@ function displayfavetemp(response) {
   let favedata = response.data;
   let faveElement = document.querySelector("#faveblock");
 
+  favecelsiustemp = response.data.main.temp;
+
   faveHTML = `<div class="col-3 text-center">
               <p class="fave1cityname" id="fave1city">${favedata.name}</p>
               <div class="fave1">
@@ -182,12 +184,11 @@ function displayfavetemp(response) {
                 alt="" 
                 class="fave1icon" 
                 id="fave1icon" width="" />
-                <span class="fave1temp">${Math.round(
+                <span class="fave1temp" id="favecitytemp">${Math.round(
                   favedata.main.temp
                 )}</span>°
               </div>
     </div>`;
-
   faveElement.innerHTML += faveHTML;
 
   console.log(favedata);
@@ -236,6 +237,10 @@ function changeFahrenheit(event) {
     item.innerHTML = Math.round((currentTempvalue * 9) / 5 + 32);
   });
 
+  let favecitytemp = document.querySelector("#favecitytemp");
+  let favefahrenheittemp = (favecelsiustemp * 9) / 5 + 32;
+  favecitytemp.innerHTML = Math.round(favefahrenheittemp);
+
   linkCelsius.addEventListener("click", changeCelsius);
   linkFahrenheit.removeEventListener("click", changeFahrenheit);
 }
@@ -259,11 +264,16 @@ function changeCelsius(event) {
     item.innerHTML = Math.round(((currentTempvalue - 32) * 5) / 9);
   });
 
+  let favecitytemp = document.querySelector("#favecitytemp");
+  favecitytemp.innerHTML = Math.round(favecelsiustemp);
+
   linkFahrenheit.addEventListener("click", changeFahrenheit);
   linkCelsius.removeEventListener("click", changeCelsius);
 }
 
 let celsiustempdata = null;
+
+let favecelsiustemp = null;
 
 let linkFahrenheit = document.querySelector("#linkFahrenheit");
 linkFahrenheit.addEventListener("click", changeFahrenheit);
