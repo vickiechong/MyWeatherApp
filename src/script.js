@@ -171,7 +171,6 @@ getlocation.addEventListener("click", getposition);
 function displayfavetemp(response) {
   let favedata = response.data;
   let faveElement = document.querySelector("#faveblock");
-  let faveHTMLwrap = `<div class="row pt-3 justify-content-center favecity">`;
 
   faveHTML = `<div class="col-3 text-center">
               <p class="fave1cityname" id="fave1city">${favedata.name}</p>
@@ -189,9 +188,7 @@ function displayfavetemp(response) {
               </div>
     </div>`;
 
-  faveHTML = faveHTMLwrap + faveHTML + faveHTML + faveHTML;
-  faveHTMLall = faveHTML + `</div>`;
-  faveElement.innerHTML = faveHTMLall;
+  faveElement.innerHTML += faveHTML;
 
   console.log(favedata);
 }
@@ -199,8 +196,10 @@ function displayfavetemp(response) {
 // search fave city API
 
 function favecity() {
-  let favecities = ["London", "Seoul", "New York"];
+  let faveElement = document.querySelector("#faveblock");
+  faveElement.innerHTML = null;
 
+  let favecities = ["London", "Seoul", "New York"];
   favecities.forEach(function (favecity) {
     let apikey = `404ebbfe1292f8e13a6dd9e110c25a01`;
     let apiendpoint = `https://api.openweathermap.org/data/2.5/weather?`;
