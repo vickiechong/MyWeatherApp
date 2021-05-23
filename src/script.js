@@ -192,6 +192,7 @@ function displayfavetemp(response) {
   faveElement.innerHTML += faveHTML;
 
   console.log(favedata);
+  console.log(favedata.main.temp);
 }
 
 // search fave city API
@@ -237,9 +238,13 @@ function changeFahrenheit(event) {
     item.innerHTML = Math.round((currentTempvalue * 9) / 5 + 32);
   });
 
-  let favecitytemp = document.querySelector("#favecitytemp");
-  let favefahrenheittemp = (favecelsiustemp * 9) / 5 + 32;
-  favecitytemp.innerHTML = Math.round(favefahrenheittemp);
+  let favecitytemp = document.querySelectorAll("#favecitytemp");
+  favecitytemp.forEach(function (favedata) {
+    let favefahrenheittemp = (favedata.innerHTML * 9) / 5 + 32;
+    favedata.innerHTML = Math.round(favefahrenheittemp);
+  });
+
+  console.log(favecitytemp);
 
   linkCelsius.addEventListener("click", changeCelsius);
   linkFahrenheit.removeEventListener("click", changeFahrenheit);
@@ -264,8 +269,11 @@ function changeCelsius(event) {
     item.innerHTML = Math.round(((currentTempvalue - 32) * 5) / 9);
   });
 
-  let favecitytemp = document.querySelector("#favecitytemp");
-  favecitytemp.innerHTML = Math.round(favecelsiustemp);
+  let favecitytemp = document.querySelectorAll("#favecitytemp");
+  favecitytemp.forEach(function (favedata) {
+    let favecelsiustemp = favedata.innerHTML;
+    favedata.innerHTML = Math.round(favecelsiustemp);
+  });
 
   linkFahrenheit.addEventListener("click", changeFahrenheit);
   linkCelsius.removeEventListener("click", changeCelsius);
