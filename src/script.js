@@ -86,7 +86,7 @@ function displayforecast(response) {
   // currentday forecast for rainfall
 
   let currentdayrainforecast = document.querySelector("#currentrainfall");
-  currentdayrainforecast.innerHTML = `${forecast[0].pop * 100}%`;
+  currentdayrainforecast.innerHTML = `${Math.round(forecast[0].pop * 100)}%`;
 }
 
 // API for forecast days from coords in currentdayAPI data
@@ -272,7 +272,7 @@ function changeCelsius(event) {
   let favecitytemp = document.querySelectorAll("#favecitytemp");
   favecitytemp.forEach(function (favedata) {
     let favecelsiustemp = favedata.innerHTML;
-    favedata.innerHTML = Math.round(favecelsiustemp);
+    favedata.innerHTML = Math.round(((favecelsiustemp - 32) * 5) / 9);
   });
 
   linkFahrenheit.addEventListener("click", changeFahrenheit);
